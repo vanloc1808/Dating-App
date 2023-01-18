@@ -29,23 +29,23 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/image_view_logo_register"
+                        android:src="@drawable/logo"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registration"
-                        android:textColor="#66CC00"
-                        android:textSize="30dp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"/>
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:text="Dating App"
+                        android:textSize="23dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/registration"
-                        />
+                        android:textColor="#FF3333"
+                        android:textStyle="bold"/>
 
-<!--    https://stackoverflow.com/questions/3482742/what-is-the-difference-between-gravity-and-layout-gravity-in-android-->
+                    <!--    https://stackoverflow.com/questions/3482742/what-is-the-difference-between-gravity-and-layout-gravity-in-android-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -103,6 +103,25 @@
                             android:inputType="textPassword"
                             android:padding="20dp"
                             />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edit_text_retype_password"
+                            android:background="@drawable/edit_text_focused_bg"
+                            android:hint="Re-enter your password"
+                            android:inputType="textPassword"
+                            android:padding="20dp"
+                            />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,25 +145,25 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
                     
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:id="@+id/checkbox"
-                            android:text="Check box"
-                            android:layout_height="wrap_content"/>
+<!--                        <CheckBox-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:id="@+id/checkbox"-->
+<!--                            android:text="Check box"-->
+<!--                            android:layout_height="wrap_content"/>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Text view"
-                            android:id="@+id/text_view"
-                            android:clickable="true"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Text view"-->
+<!--                            android:id="@+id/text_view"-->
+<!--                            android:clickable="true"/>-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
@@ -182,6 +201,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
 

@@ -4,6 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingTop="20dp"
+                android:paddingRight="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/image_view_logo_login"
+                        android:src="@drawable/logo"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dating App"
+                        android:textSize="23dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#FF3333"
+                        android:textStyle="bold"/>
+
+                    <!--    https://stackoverflow.com/questions/3482742/what-is-the-difference-between-gravity-and-layout-gravity-in-android-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edit_text_email_login"
+                            android:background="@drawable/edit_text_focused_bg"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:padding="20dp"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:gravity="bottom">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/edit_text_password_login"
+                            android:background="@drawable/edit_text_focused_bg"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:padding="20dp"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_login"
+                        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@color/orange_500"
+                        android:padding="2dp"
+                        android:text="Log in"
+                        android:textColor="@color/white"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_forgot_password"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@color/blue_200"
+                        android:padding="2dp"
+                        android:text="Forgot password?"
+                        android:textColor="@color/red"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/register_progress_bar"
+        android:indeterminateTint="@color/color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
