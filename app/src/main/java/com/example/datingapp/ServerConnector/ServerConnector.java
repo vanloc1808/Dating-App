@@ -1,7 +1,5 @@
 package com.example.datingapp.ServerConnector;
 
-import android.util.Log;
-
 import com.example.datingapp.ServerConnector.AsyncTasks.RegisterTask;
 
 import org.json.JSONException;

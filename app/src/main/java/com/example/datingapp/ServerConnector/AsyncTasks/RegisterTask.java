@@ -2,21 +2,18 @@ package com.example.datingapp.ServerConnector.AsyncTasks;
 
 import static com.example.datingapp.ServerConnector.ServerConnector.API_PATH;
 import static com.example.datingapp.ServerConnector.ServerConnector.HOST_NAME;
-
+import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
 import static java.net.HttpURLConnection.HTTP_CREATED;
-import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 public class RegisterTask extends AsyncTask<String, Void, String> {
     @Override
@@ -40,8 +37,6 @@ public class RegisterTask extends AsyncTask<String, Void, String> {
                     "\"phone_number\": \"" + registerInformation[3] + "\"\n" +
                     "}";
 
-            Log.i("REQUEST BODY", requestBody);
-
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(requestBody.getBytes());
             outputStream.flush();
@@ -49,7 +44,7 @@ public class RegisterTask extends AsyncTask<String, Void, String> {
 
             int responseCode = httpURLConnection.getResponseCode();
 
-            if (responseCode == HTTP_CREATED) {
+            if ((responseCode == HTTP_CREATED) || (responseCode == HTTP_BAD_REQUEST) || (responseCode == HTTP_INTERNAL_ERROR)) {
                 // get the response body
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 
