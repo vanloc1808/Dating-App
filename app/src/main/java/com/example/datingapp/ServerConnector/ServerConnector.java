@@ -1,5 +1,6 @@
 package com.example.datingapp.ServerConnector;
 
+import com.example.datingapp.ServerConnector.AsyncTasks.LoginTask;
 import com.example.datingapp.ServerConnector.AsyncTasks.RegisterTask;
 
 import org.json.JSONException;
@@ -35,6 +36,29 @@ public class ServerConnector {
             }
 
             return message;
+
+        } catch (ExecutionException | InterruptedException | JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String Login(String hashedEmail, String hashedPassword) {
+
+        LoginTask loginTask = new LoginTask();
+        loginTask.execute(hashedEmail, hashedPassword);
+
+        try {
+            String result = loginTask.get();
+
+            if (result == null) {
+                return null;
+            }
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            return jsonObject.getString("message");
 
         } catch (ExecutionException | InterruptedException | JSONException e) {
             e.printStackTrace();

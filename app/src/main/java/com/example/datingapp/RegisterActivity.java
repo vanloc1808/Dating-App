@@ -33,12 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         etPhoneNumber = findViewById(R.id.edit_text_phone);
         progressBar = findViewById(R.id.register_progress_bar);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onRegisterClicked();
-            }
-        });
+        btnRegister.setOnClickListener(view -> onRegisterClicked());
     }
 
     public void onRegisterClicked() {
