@@ -1,5 +1,7 @@
 package com.example.datingapp.ServerConnector;
 
+import android.util.Log;
+
 import com.example.datingapp.ServerConnector.AsyncTasks.LoginTask;
 import com.example.datingapp.ServerConnector.AsyncTasks.RegisterTask;
 
@@ -53,6 +55,7 @@ public class ServerConnector {
             String result = loginTask.get();
 
             if (result == null) {
+                //Log.i("RESULT", "NULL");
                 return null;
             }
 

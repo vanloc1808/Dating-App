@@ -7,6 +7,7 @@ import static java.net.HttpURLConnection.HTTP_CREATED;
 import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,6 +38,8 @@ public class RegisterTask extends AsyncTask<String, Void, String> {
                     "\"phone_number\": \"" + registerInformation[3] + "\"\n" +
                     "}";
 
+            Log.i("REQUEST BODY", requestBody);
+
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(requestBody.getBytes());
             outputStream.flush();
@@ -44,9 +47,24 @@ public class RegisterTask extends AsyncTask<String, Void, String> {
 
             int responseCode = httpURLConnection.getResponseCode();
 
-            if ((responseCode == HTTP_CREATED) || (responseCode == HTTP_BAD_REQUEST) || (responseCode == HTTP_INTERNAL_ERROR)) {
+            if (responseCode == HTTP_CREATED) {
                 // get the response body
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
+
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+
+                in.close();
+
+                return response.toString();
+            } else {
+                // get the response body
+                BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
 
                 String inputLine;
                 StringBuilder response = new StringBuilder();

@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         if (loginResult == null) {
-            Toast.makeText(this, "There is an unknown error while registering. Please try again!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "There is an unknown error while logging in. Please try again!", Toast.LENGTH_LONG).show();
         } else if (loginResult.equals("Missing fields")) {
             Toast.makeText(this, "All fields are not allowed to be empty", Toast.LENGTH_LONG).show();
         } else if (loginResult.equals("User does not exist")) {

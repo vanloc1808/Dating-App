@@ -9,6 +9,7 @@ import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
 import static java.net.HttpURLConnection.HTTP_OK;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class LoginTask extends AsyncTask<String, Void, String>  {
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
 
             // Set the content type of the request
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
@@ -38,16 +40,35 @@ public class LoginTask extends AsyncTask<String, Void, String>  {
                     "\"password\": \"" + loginInformation[1] + "\"\n" +
                     "}";
 
+            Log.i("REQUEST BODY", requestBody);
+
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(requestBody.getBytes());
             outputStream.flush();
             outputStream.close();
 
             int responseCode = httpURLConnection.getResponseCode();
+            Log.i("RESPONSE_CODE", String.valueOf(responseCode));
 
-            if ((responseCode == HTTP_OK) || (responseCode == HTTP_BAD_REQUEST)) {
+
+            if ((responseCode == HTTP_OK)) {
                 // get the response body
                 BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+
+                in.close();
+                //Log.i("RESPONSE_TO_STRING", response.toString());
+
+                return response.toString();
+            } else {
+                // get the response body
+                BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
 
                 String inputLine;
                 StringBuilder response = new StringBuilder();
