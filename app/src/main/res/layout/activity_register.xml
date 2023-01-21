@@ -185,6 +185,8 @@
                     android:id="@+id/text_view_existing_user"
                     android:padding="15sp"
                     android:text="Existing user? Please log in"
+                    android:clickable="true"
+                    android:onClick="navigateToLogin"
                     android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>

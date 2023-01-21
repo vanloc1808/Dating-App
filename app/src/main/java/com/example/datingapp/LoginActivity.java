@@ -3,6 +3,7 @@ package com.example.datingapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -71,5 +72,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Login successfully", Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    public void navigateRegister(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
