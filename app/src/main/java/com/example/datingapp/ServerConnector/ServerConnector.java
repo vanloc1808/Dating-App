@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.datingapp.ServerConnector.AsyncTasks.LoginTask;
 import com.example.datingapp.ServerConnector.AsyncTasks.RegisterTask;
+import com.example.datingapp.ServerConnector.AsyncTasks.ResetPasswordTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +63,37 @@ public class ServerConnector {
             JSONObject jsonObject = new JSONObject(result);
 
             return jsonObject.getString("message");
+
+        } catch (ExecutionException | InterruptedException | JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String ResetPassword(String hashedEmail) {
+        ResetPasswordTask resetPasswordTask = new ResetPasswordTask();
+        resetPasswordTask.execute(hashedEmail);
+
+        try {
+            String result = resetPasswordTask.get();
+
+            if (result == null) {
+                return null;
+            }
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            String message = jsonObject.getString("message");
+
+            if (message.equals("successful")) {
+                String strData = jsonObject.getString("data");
+                JSONObject jsonData = new JSONObject(strData);
+
+                return jsonData.getString("sha256_recovery_key");
+            }
+
+            return message;
 
         } catch (ExecutionException | InterruptedException | JSONException e) {
             e.printStackTrace();
