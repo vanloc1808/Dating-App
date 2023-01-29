@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    app:labelVisibilityMode="unlabeled"
+    android:id="@+id/top_navigation_view_bar"
+    android:layout_gravity="bottom"
+    android:background="@drawable/gradient_2"
+    app:menu="@menu/top_navigation_toolbar"
+    >
+
+</com.google.android.material.bottomnavigation.BottomNavigationView>
+</LinearLayout>
