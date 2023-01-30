@@ -2,11 +2,14 @@ package com.example.datingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.dimorinny.position.ShowCasePosition;
+import com.dimorinny.position.ViewPosition;
 import com.example.datingapp.Utils.TopNavigationViewHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -36,10 +39,18 @@ public class MainActivity extends AppCompatActivity {
         View matchedView = findViewById(R.id.icon_matched);
 
         if (firstStart) {
-
+            showToolTipProfile(new ViewPosition(profileView));
         }
+
+        SharedPreferences newPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = newPreferences.edit();
+        editor.putBoolean("firstStart", false);
+        editor.apply();
     }
 
+    private void showToolTipProfile(ShowCasePosition showCasePosition) {
+
+    }
 
 
     public void onDislikeClicked(View view) {
