@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.dimorinny.ShowCaseView;
 import com.dimorinny.position.ShowCasePosition;
 import com.dimorinny.position.ViewPosition;
+import com.dimorinny.radius.Radius;
 import com.example.datingapp.Utils.TopNavigationViewHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setupTopNavigationView();
     }
 
     private void setupTopNavigationView() {
@@ -49,11 +53,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showToolTipProfile(ShowCasePosition showCasePosition) {
-
+        new ShowCaseView.Builder(MainActivity.this)
+                .withTypedPosition(showCasePosition)
+                .withTypedRadius(new Radius(186F))
+                .withContent("First time upload your profile picture and click on Confirm otherwise your app will not working fine")
+                .build()
+                .show(MainActivity.this);
     }
 
 
+
     public void onDislikeClicked(View view) {
+
     }
 
     public void onLikeClicked(View view) {

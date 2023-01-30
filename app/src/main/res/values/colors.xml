@@ -40,6 +40,7 @@
     <color name="lightgrey">#d1d1d1</color>
     <color name="pink">#EA2164</color>
     <color name="text">#545454</color>
+    <color name="dark">#333333</color>
 
     <color name="progress_background">#B6B6B6</color>
     <color name="color_salty">#83d3d0</color>
