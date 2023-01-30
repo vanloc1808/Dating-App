@@ -35,13 +35,10 @@ public class BtnLikeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String profilePictureURL = intent.getStringExtra("URL");
 
-        switch (profilePictureURL) {
-            case "default":
-                Glide.with(context).load(R.drawable.profile).into(imageViewLike);
-                break;
-            default:
-                Glide.with(context).load(profilePictureURL).into(imageViewLike);
-                break;
+        if ("default".equals(profilePictureURL)) {
+            Glide.with(context).load(R.drawable.profile).into(imageViewLike);
+        } else {
+            Glide.with(context).load(profilePictureURL).into(imageViewLike);
         }
 
         new Thread(new Runnable() {
