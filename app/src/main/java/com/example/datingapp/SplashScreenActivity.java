@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-// https://www.youtube.com/playlist?list=PLoPTqokme6cVV_xMic2sMURVwatCfcaX4
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
