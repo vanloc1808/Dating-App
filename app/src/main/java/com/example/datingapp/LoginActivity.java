@@ -70,6 +70,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Password is wrong", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Login successfully", Toast.LENGTH_LONG).show();
+            
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("HASH", hashedEmail);
+            startActivity(intent);
         }
 
     }

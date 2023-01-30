@@ -131,6 +131,12 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "This phone number is already been used", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Register successfully", Toast.LENGTH_LONG).show();
+
+            String hashedEmail = SHA256.sha256(email);
+
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("HASH", hashedEmail);
+            startActivity(intent);
         }
     }
 

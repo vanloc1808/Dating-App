@@ -34,7 +34,7 @@
     <color name="light_grey">#eeeeee</color>
     <color name="textColor">#111111</color>
 
-    <color name="likegreen">#00CC33</color>
+    <color name="like_green">#00CC33</color>
     <color name="dislikered">#FF2400</color>
 
     <color name="lightgrey">#d1d1d1</color>
