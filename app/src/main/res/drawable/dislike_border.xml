@@ -3,7 +3,7 @@
 
     <stroke
         android:width="5dp"
-        android:color="@color/disliked">
+        android:color="@color/dislikered">
 
     </stroke>
 
